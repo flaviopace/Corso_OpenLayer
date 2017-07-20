@@ -40,14 +40,17 @@ function init() {
               lyr_centrilocalita,
               lyr_confinicomunali,
         ],
-        controls: ol.control.defaults({
-          attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-              collapsible: false
-              })
-            }).extend([
-              new ol.control.ScaleLine({}),
-              new ol.control.LayerSwitcher({tipLabel: "Layers"}),
-          ]),
+        controls: [
+            //Define the default controls
+            new ol.control.Zoom(),
+            new ol.control.Rotate(),
+            new ol.control.Attribution(),
+            //Define some new controls
+            new ol.control.ZoomSlider(),
+            new ol.control.MousePosition(),
+            new ol.control.ScaleLine(),
+            new ol.control.OverviewMap()
+        ],
         // Posizionamento della View coordinate Potenza
         view: new ol.View({
             center: ol.proj.transform([15.8022214, 40.6372425], 'EPSG:4326', 'EPSG:3857'),
