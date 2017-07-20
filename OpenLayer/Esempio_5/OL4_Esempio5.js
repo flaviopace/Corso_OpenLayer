@@ -35,13 +35,14 @@ function init() {
             name: "confini_comunali"
     });
 
+
     var format_centrilocalita = new ol.format.GeoJSON();
-    var features_centrilocalita = format_confinicomunali.readFeatures(geojson_centrilocalita,
+    var features_centrilocalita = format_centrilocalita.readFeatures(geojson_centrilocalita,
                                 { dataProjection: 'EPSG:4326',
                                  featureProjection: 'EPSG:3857'
                                 });
     var jsonSource_centrilocalita = new ol.source.Vector();
-    jsonSource_confinicomunali.addFeatures(features_centrilocalita);
+    jsonSource_centrilocalita.addFeatures(features_centrilocalita);
 
     var lyr_centrilocalita = new ol.layer.Vector({
             source:jsonSource_centrilocalita,
