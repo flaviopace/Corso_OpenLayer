@@ -1,6 +1,26 @@
 function init() {
     document.removeEventListener('DOMContentLoaded', init);
 
+    var baseLayer = new ol.layer.Group({
+        'title': 'Base maps',
+        layers: [
+            new ol.layer.Tile({
+                'title': 'Cartina',
+                'type': 'base',
+                source: new ol.source.TileJSON({
+                    url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure',
+                    crossOrigin: 'anonymous'
+                })
+            }),
+            new ol.layer.Tile({
+                // Usa un Layer di Tipo Tile da OpenStreetMap
+                'title': 'OSM Standard',
+                'type': 'base',
+                source: new ol.source.OSM()
+            }),
+        ]
+    });
+
     var format_confinicomunali = new ol.format.GeoJSON();
     var features_confinicomunali = format_confinicomunali.readFeatures(geojson_confinicomunali,
                                 { dataProjection: 'EPSG:4326',
@@ -33,10 +53,7 @@ function init() {
         // componente HTML dove posizionare la Mapps
         target: 'map',
         layers: [
-              new ol.layer.Tile({
-                  // Usa un Layer di Tipo Tile da OpenStreetMap
-                  source: new ol.source.OSM()
-              }),
+              baseLayer,
               lyr_centrilocalita,
               lyr_confinicomunali,
         ],
