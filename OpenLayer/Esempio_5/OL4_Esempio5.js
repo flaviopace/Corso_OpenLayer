@@ -21,12 +21,16 @@ function init() {
             }),
         ]
     });
-
+    
+    // Istanzia un oggetto di tipo GeoJSON
     var format_confinicomunali = new ol.format.GeoJSON();
+    // instanzia un nuovo oggetto 
+    // readFeatures methos e' usato per estrarre dal GeoJSON i dati della proiezione
     var features_confinicomunali = format_confinicomunali.readFeatures(geojson_confinicomunali,
                                 { dataProjection: 'EPSG:4326',
                                  featureProjection: 'EPSG:3857'
                                 });
+    // Istanzia un oggetto di tipo Vector               
     var jsonSource_confinicomunali = new ol.source.Vector();
     jsonSource_confinicomunali.addFeatures(features_confinicomunali);
 
