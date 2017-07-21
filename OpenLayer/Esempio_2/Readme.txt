@@ -1,1 +1,1 @@
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir=/Users/unicondor/Documents/presentazioneOpenLayer/Corso_OpenLayer/OpenLayer/Esempio_2
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir=C:\Users\fpace\Documents\presentazioneOpenLayer\Corso_OpenLayer\OpenLayer\Esempio_2
