@@ -1,6 +1,7 @@
 function init() {
     document.removeEventListener('DOMContentLoaded', init);
-
+    
+    //Creazione di un gruppo di Base Layer
     var baseLayer = new ol.layer.Group({
         'title': 'Base maps',
         layers: [
@@ -50,13 +51,20 @@ function init() {
             name: "centri_localita"
     });
 
+    var layers = new ol.layer.Group({
+        'title': 'Layers',
+        layers: [
+            lyr_centrilocalita,
+            lyr_confinicomunali
+        ]
+    });
+    
     var map = new ol.Map({
         // componente HTML dove posizionare la Mapps
         target: 'map',
         layers: [
               baseLayer,
-              lyr_centrilocalita,
-              lyr_confinicomunali,
+              layers,
         ],
         controls: [
             //Define the default controls
